@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(morgan('dev'));
 app.use(express.json());
 
-// Use errorHandler as middleware
+
 app.use(errorHandler);
 
 app.use("/api/v1/auth", authRoutes);
@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
    res.send("Hello");
 });
 
-//app.use("/api/v1/openai", require('./openAiRouter'));
+app.use("/api/v1/openai", require('./openAiRouter'));
 
 app.listen(port, () => {
     console.log(`Server is Running in ${process.env.DEV_MODE} on ${port}`.bgCyan.white);
